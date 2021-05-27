@@ -2,34 +2,37 @@
 
 import sys
 
-sum_of_out_degree = 0
+sum_of_degree = 0
 number_of_timestamps = 0
-previous_i = None
+previous_node = None
+previous_degree_type = None
 previous_time = None
 
-print('%s\t%s' % ('Node', 'OutDegree'))
+print('%s\t%s\t%s' % ('Node', 'Degree Type', 'Value'))
 
 for line in sys.stdin:
     try:
-        i, timestamp = line.strip().split('\t')
+        degree_type, node, timestamp = line.strip().split('\t')
 
-        if previous_i == None:
-            previous_i = i
+        if previous_degree_type == None:
+            previous_node = node
             previous_time = timestamp
-            sum_of_out_degree += 1
+            previous_degree_type = degree_type
+            sum_of_degree += 1
             number_of_timestamps += 1
-        elif previous_i == i:
-            sum_of_out_degree += 1
+        elif previous_node == node and previous_degree_type == degree_type:
+            sum_of_degree += 1
             if previous_time != timestamp:
                 number_of_timestamps += 1
                 previous_time = timestamp
         else:
-            print('%s\t%s' % (previous_i, sum_of_out_degree//number_of_timestamps))
-            previous_i = i
+            print('%s\t%s\t%s' % (previous_node, previous_degree_type, sum_of_degree//number_of_timestamps))
+            previous_node = node
             previous_time = timestamp
-            sum_of_out_degree = 1
+            previous_degree_type == degree_type
+            sum_of_degree = 1
             number_of_timestamps = 1
     except ValueError:
         continue
 
-print('%s\t%s' % (previous_i, sum_of_out_degree//number_of_timestamps))
+print('%s\t%s\t%s' % (previous_node, previous_degree_type, sum_of_degree//number_of_timestamps))

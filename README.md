@@ -17,7 +17,7 @@ $ python3 reducer.py < ./data/mapper_results_test.csv  > ./data/reducer_results_
 $ python3 mapper.py < ./data/manunited_cont.csv | sort
 $ python3 mapper.py <  ./data/manunited_cont.csv | sort > ./data/mapper_results.csv
 
-# RUN Reducer local - test data
+# RUN Reducer local
 $ python3 reducer.py < ./data/mapper_results.csv
 $ python3 reducer.py < ./data/mapper_results.csv  > ./data/reducer_results.csv
 
