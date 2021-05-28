@@ -7,7 +7,7 @@ number_of_timestamps = 0
 previous_node = None
 previous_degree_type = None
 previous_time = None
-
+ 
 print('%s\t%s\t%s' % ('Node', 'Degree Type', 'Value'))
 
 for line in sys.stdin:
@@ -36,3 +36,4 @@ for line in sys.stdin:
         continue
 
 print('%s\t%s\t%s' % (previous_node, previous_degree_type, sum_of_degree//number_of_timestamps))
+

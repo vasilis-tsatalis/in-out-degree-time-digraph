@@ -23,3 +23,5 @@ $ python3 reducer.py < ./data/mapper_results.csv  > ./data/reducer_results.csv
 
 ===============================
 
+# One cmd
+$ python3 mapper.py < ./data/manunited_cont.csv | sort > reducer.py > ./data/results.csv
